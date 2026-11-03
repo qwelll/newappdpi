@@ -5,7 +5,7 @@ typedef void (^AppDPIApplicationPickerCompletion)(NSArray<NSString *> *selectedB
 
 @interface AppDPIApplicationPickerController : UIViewController
 @property (nonatomic, copy) AppDPIApplicationPickerCompletion appdpi_scale_completion;
-- (instancetype)appdpi_scale_initWithSelectedBundles:(NSArray<NSString *> *)selectedBundles;
+- (instancetype)initWithSelectedBundles:(NSArray<NSString *> *)selectedBundles;
 /// User applications as dictionaries with keys name and bundle, sorted by display name.
 + (NSArray<NSDictionary<NSString *, NSString *> *> *)appdpi_scale_loadApplications;
 @end

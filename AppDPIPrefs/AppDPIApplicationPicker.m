@@ -19,7 +19,7 @@
     UIActivityIndicatorView *_spinner;
 }
 
-- (instancetype)appdpi_scale_initWithSelectedBundles:(NSArray<NSString *> *)selectedBundles {
+- (instancetype)initWithSelectedBundles:(NSArray<NSString *> *)selectedBundles {
     self = [super initWithNibName:nil bundle:nil];
     if (self) {
         _selected = [NSMutableSet setWithArray:selectedBundles ?: @[]];
@@ -32,7 +32,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"选择应用";
-    self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    self.view.backgroundColor = [UIColor systemGroupedBackgroundColor];
 
     _search = [[UISearchBar alloc] initWithFrame:CGRectZero];
     _search.placeholder = @"搜索应用名称或标识符";
