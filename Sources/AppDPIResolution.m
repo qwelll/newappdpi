@@ -90,7 +90,7 @@ NSString *appdpi_scale_currentBundleIdentifier(void) {
     if (!self.appdpi_scale_active) {
         return size;
     }
-    if (self.appdpi_scale_isScaledScreenSize:size) {
+    if ([self appdpi_scale_isScaledScreenSize:size]) {
         return self.appdpi_scale_targetScreenSize;
     }
     return appdpi_scale_sizeForRatio(size, self.appdpi_scale_ratio);
