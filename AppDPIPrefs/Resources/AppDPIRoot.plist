@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>title</key><string>应用DPI缩放</string>
+    <key>items</key>
+    <array>
+        <dict>
+            <key>cell</key><string>PSGroupCell</string>
+            <key>label</key><string>基本设置</string>
+            <key>footerText</key><string>只改逻辑分辨率：不动物理像素和触摸坐标，iPhone 手势与截图不受影响。修改后目标 App 会自动重排布局。</string>
+        </dict>
+        <dict>
+            <key>cell</key><string>PSSwitchCell</string>
+            <key>label</key><string>启用插件</string>
+            <key>key</key><string>enabled</string>
+            <key>default</key><true/>
+        </dict>
+        <dict>
+            <key>cell</key><string>PSGroupCell</string>
+            <key>label</key><string>缩放应用</string>
+            <key>footerText</key><string>选中的 App 按“默认比例”缩放；在下方“应用比例”里可以给单个 App 单独调。比例越小，同屏容纳的内容越多。</string>
+        </dict>
+        <dict>
+            <key>cell</key><string>PSButtonCell</string>
+            <key>label</key><string>选择应用</string>
+            <key>action</key><string>appdpi_scale_pickApplications</string>
+        </dict>
+        <dict>
+            <key>cell</key><string>PSGroupCell</string>
+            <key>label</key><string>默认比例</string>
+        </dict>
+        <dict>
+            <key>cell</key><string>PSSliderCell</string>
+            <key>key</key><string>defaultRatio</string>
+            <key>default</key><real>0.9</real>
+            <key>min</key><real>0.6</real>
+            <key>max</key><real>1.0</real>
+            <key>showValue</key><true/>
+        </dict>
+    </array>
+</dict>
+</plist>

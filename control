@@ -1,0 +1,9 @@
+Package: com.appdpi.dpiscale
+Name: 应用DPI缩放
+Version: 0.1.0
+Architecture: iphoneos-arm
+Description: 按应用修改逻辑分辨率，让指定 App 以更小的逻辑屏幕排版（同屏显示更多内容）。只改逻辑分辨率，不动物理像素与触摸坐标。
+Maintainer: qwelll
+Author: qwelll
+Section: Tweaks
+Depends: mobilesubstrate, preferenceloader
