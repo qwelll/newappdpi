@@ -3,6 +3,7 @@
 #import "AppDPIConfig.h"
 #import "AppDPIResolution.h"
 #import "AppDPIResolutionMath.h"
+#import "AppDPIPreferences.h"
 
 /*
  * Per-application logical resolution override.
@@ -69,7 +70,11 @@ static void appdpi_scale_resizeVisibleWindows(void) {
     if (!resolution.appdpi_scale_active || ![UIApplication sharedApplication]) {
         return;
     }
-    for (UIWindow *window in [UIApplication sharedApplication].windows) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+    NSArray<UIWindow *> *windows = [UIApplication sharedApplication].windows;
+#pragma clang diagnostic pop
+    for (UIWindow *window in windows) {
         CGRect frame = window.frame;
         if (!appdpi_scale_isFullScreenRect(frame, resolution.appdpi_scale_originalScreenSize) &&
             ![resolution appdpi_scale_isScaledScreenSize:frame.size]) {
