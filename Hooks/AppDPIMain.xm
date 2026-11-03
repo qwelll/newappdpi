@@ -112,25 +112,29 @@ static void appdpi_scale_resizeVisibleWindows(void) {
 %end
 %end
 
+static void appdpi_scale_installHooks(void);
+
 static void appdpi_scale_applyConfiguration(void) {
     AppDPIResolution *resolution = [AppDPIResolution appdpi_scale_shared];
     [resolution appdpi_scale_refresh];
     if (!resolution.appdpi_scale_active) {
         // Disabling from the panel restores the original window geometry immediately.
-        static dispatch_once_t restoreToken;
-        dispatch_once(&restoreToken, ^{
-            %init(AppDPIWindow);
-        });
+        appdpi_scale_installHooks();
         return;
     }
     // Hooks are installed lazily on the main thread: UIApplication exists and injecting an app that
     // is already running is safe.
+    appdpi_scale_installHooks();
+    appdpi_scale_resizeVisibleWindows();
+}
+
+// Logos groups may only be %init'd once, so every caller funnels through this gate.
+static void appdpi_scale_installHooks(void) {
     static dispatch_once_t installToken;
     dispatch_once(&installToken, ^{
         %init(AppDPIScreen);
         %init(AppDPIWindow);
     });
-    appdpi_scale_resizeVisibleWindows();
 }
 
 %ctor {
