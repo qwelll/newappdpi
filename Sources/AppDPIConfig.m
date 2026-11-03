@@ -68,7 +68,7 @@ static void appdpi_scale_preferencesDidChange(CFNotificationCenterRef center, vo
 }
 
 - (CGFloat)appdpi_scale_forCurrentApplication {
-    NSString *identifier = AppDPICurrentBundleIdentifier();
+    NSString *identifier = appdpi_scale_currentBundleIdentifier();
     if (identifier.length == 0) {
         return 1.0;
     }

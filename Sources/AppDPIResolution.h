@@ -3,7 +3,7 @@
 #import <UIKit/UIKit.h>
 
 // Application bundle identifier of the process being hooked (falls back to the main bundle).
-FOUNDATION_EXPORT NSString *AppDPICurrentBundleIdentifier(void);
+FOUNDATION_EXPORT NSString *appdpi_scale_currentBundleIdentifier(void);
 
 /*
  * Per-process resolution state. Views are scaled exactly once: the first time a size is requested
